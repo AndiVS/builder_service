@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option go_package = "./protocol";
+package proto;
+
+service Builder {
+  rpc PushQueue(PushQueueRequest) returns (PushQueueResponse) {};
+  rpc PopQueue(PopQueueRequest) returns (PopQueueResponse) {};
+  rpc GetQueue(GetQueueRequest) returns (GetQueueResponse) {};
+}
+
+message element {
+  string id_user = 1;
+  string id_planet = 2;
+  enum type {
+    shipyard = 0;
+    building = 1;
+    laboratory = 2;
+  };
+  string name = 3;
+  int32  time = 4;
+}
+
+message PushQueueRequest  {
+  element el = 1;
+  string request = 2;
+}
+
+message PushQueueResponse  {
+  element el = 1;
+  string response = 2;
+}
+
+message PopQueueRequest  {
+  element el = 1;
+}
+
+message PopQueueResponse  {
+  element el = 1;
+  string response = 2;
+}
+
+message GetQueueRequest  {
+  string id_user = 1;
+  string id_planet = 2;
+  string type = 3;
+}
+
+message GetQueueResponse  {
+  repeated element element_slice = 1;
+}
