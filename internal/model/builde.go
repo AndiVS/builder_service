@@ -2,35 +2,36 @@ package model
 
 import (
 	"github.com/google/uuid"
+	"time"
 )
 
 type Building struct {
-	IDUser    uuid.UUID `json:"id_user"`
-	IDPlanet  uuid.UUID `json:"id_planet"`
-	Type      int       `json:"type"`
-	Name      int       `json:"name"`
-	TimeStart int       `json:"time_start"`
-	TimeNeed  int       `json:"time_need"`
-	Update    bool      `json:"update"`
-	Progress  int       `json:"progress"`
+	UserID       uuid.UUID     `json:"user_id"`
+	PlanetID     uuid.UUID     `json:"planet_id"`
+	BuildingType int           `json:"building_type"`
+	BuildingID   int           `json:"building_id"`
+	Destroy      bool          `json:"destroy"`
+	Start        time.Time     `json:"start"`
+	Duration     time.Duration `json:"duration"`
+	Status       int           `json:"status"`
 }
 
 type Ship struct {
-	IDUser    uuid.UUID `json:"id_user"`
-	IDPlanet  uuid.UUID `json:"id_planet"`
-	Type      int       `json:"RequestType"`
-	Name      int       `json:"Name"`
-	TimeStart int       `json:"time_start"`
-	TimeNeed  int       `json:"time_need"`
-	Progress  int       `json:"progress"`
+	UserID       uuid.UUID     `json:"user_id"`
+	PlanetID     uuid.UUID     `json:"planet_id"`
+	ShipYardType int           `json:"ship_yard_type"`
+	ShipYardID   int           `json:"ship_yard_id"`
+	Destroy      bool          `json:"destroy"`
+	Start        time.Time     `json:"start"`
+	Duration     time.Duration `json:"duration"`
+	Status       int           `json:"status"`
 }
 
 type Research struct {
-	IDUser    uuid.UUID `json:"id_user"`
-	IDPlanet  uuid.UUID `json:"id_planet"`
-	Type      int       `json:"RequestType"`
-	Name      int       `json:"Name"`
-	TimeStart int       `json:"time_start"`
-	TimeNeed  int       `json:"time_need"`
-	Progress  int       `json:"progress"`
+	UserID     uuid.UUID     `json:"user_id"`
+	PlanetID   uuid.UUID     `json:"planet_id"`
+	ResearchID int           `json:"research_id"`
+	Start      time.Time     `json:"start"`
+	Duration   time.Duration `json:"duration"`
+	Status     int           `json:"status"`
 }
